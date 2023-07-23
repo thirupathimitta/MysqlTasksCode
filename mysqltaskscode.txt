@@ -1,0 +1,157 @@
+/*create table Student( ROllNo  INT AUTO_INCREMENT PRIMARY KEY, Name varchar(50), 
+Class char(2), DOB Date, Gender ENUM('M', 'F'),City VARCHAR(50), Marks INT
+);
+select *from Student;
+ALTER TABLE Student
+ADD CONSTRAINT chk_marks CHECK (Marks BETWEEN 1 AND 600);
+
+INSERT INTO Student (Name, Class, DOB, Gender, City, Marks)
+VALUES
+    ('Thiru', 'X', '2005-05-10', 'M', 'Hyderabad', 555),
+    ('Teja', 'XI', '2004-08-22', 'F', 'Vizag', 588),
+    ('Revanth', 'XI', '2006-02-15', 'M', 'Guntur', 578),
+    ('Smruthi', 'X', '2003-11-30', 'F', 'Hyderabad', 542),
+    ('Aruna', 'V', '2005-09-18', 'F', 'hyderabad', 585),
+    ('Barathwaj','II','2004-08-22','M','Warangal',570);
+    INSERT INTO Student (Name, Class, DOB, Gender, City, Marks)
+VALUES('srinivas','X','2005-09-22','M','Warangal','545');
+  
+  Select * from Student;
+  TRUNCATE TABLE Student;
+Desc Student;
+ALTER TABLE Student AUTO_INCREMENT = 1;*/
+
+/* task1 :- Update the name of the student with RollNo = 3 to 'Ravindra'.
+-- 	         Update the Class of the student with RollNo = 1 to 'XI'.
+UPDATE Student
+SET Name = 'Ravindra'
+WHERE RollNo = 3;
+
+update Student Set Class ='XI' where RollNo =1;*/
+
+/*Task2:- Filtering and Sorting:
+Retrieve the details of female students (Gender = 'F') who scored more than 550 marks.
+Retrieve the names and cities of students belonging to Class 'X' and 'XI', sorted by their RollNo in ascending order
+
+Select * from Student where Gender='F' and marks >550;
+
+select Name, City,rollno
+from Student
+where Class IN ('X', 'XI')
+ORDER BY RollNo;*/
+/*Task3:- Aggregation:
+	      Find the average marks scored by male students.
+		  Calculate the total number of students in each city.
+SELECT AVG(Marks) AS AverageMarksOfMale
+FROM Student
+WHERE Gender = 'M';
+
+SELECT City, COUNT(*) AS TotalStudents
+FROM Student
+GROUP BY City;*/
+
+/* Task4:-Deletion:
+				Delete the record of the student with RollNo = 5.
+				Delete all records of students from 'Vizag' city.
+                -- Delete the student with RollNo = 5
+DELETE FROM Student
+WHERE RollNo = 5;
+
+
+DELETE FROM Student
+WHERE City = 'Vizag';
+
+SET SQL_SAFE_UPDATES = 0;
+(or)
+Go to "Edit" menu.
+Click on "Preferences."
+In the preferences window, select "SQL Editor" from the left panel.
+Uncheck the "Safe Updates" option.
+Click "OK" to save the changes.*/
+
+select*from student;
+
+
+/*Task5:- Grouping and Aggregation:
+Find the highest and lowest marks obtained in each class.
+Calculate the number of male and female students in each class.
+
+SELECT Class, MAX(Marks) AS HighestMarks, MIN(Marks) AS LowestMarks
+FROM Student
+GROUP BY Class;
+SELECT Class, Gender, COUNT(*) AS TotalStudents
+FROM Student
+GROUP BY Class, Gender;*/
+
+/* Task6:- Date Queries:
+				Retrieve the names of students who were born before the year 2005.
+				Find the age of the youngest student in the table.
+SELECT Name
+FROM Student
+WHERE DOB < '2005-01-01';
+
+SELECT MIN(DATEDIFF(CURDATE(), DOB)) AS YoungestAge
+FROM Student;*/
+
+/* Task 7: Update the Gender of the student with RollNo = 2 to 'M'.
+update  Student set gender='M' where Rollno =2;
+select * from Student;
+INSERT INTO Student (RollNo, Name, Class, DOB, Gender, City, Marks)
+VALUES (2, 'teja', 'X', '2004-07-15', 'F', 'delhi', 580);*/
+/*Task 8: Retrieve the details of students who belong to Class 'X' and scored between 500 and 550 marks (inclusive).
+select * from Student where class='x' and marks between 500 and 550;*/
+
+/*Task 9: Calculate the average age of all students in the table.
+SELECT AVG(DATEDIFF(CURDATE(), DOB)) AS AverageAge
+FROM Student;*/
+
+/*Task 10: Find the students who have the same date of birth (DOB).
+SELECT DOB, COUNT(*) AS NumOfStudents
+FROM Student
+GROUP BY DOB
+HAVING COUNT(*) > 1;*/
+
+/*Task 11: Retrieve the names of students who scored more than the average marks in the table.
+SELECT Name, Marks
+FROM Student
+WHERE Marks > (SELECT AVG(Marks) FROM Student);*/
+
+/*Task 12: Find the cities where the maximum number of students reside.
+SELECT City, COUNT(*) AS NumOfStudents
+FROM Student
+GROUP BY City
+HAVING COUNT(*) = (SELECT MAX(NumOfStudents) FROM (SELECT City, COUNT(*) AS NumOfStudents FROM Student GROUP BY City) as temp);*/
+
+/*Task 13: Calculate the total number of students in each class and order the results by the number of students in descending order.
+
+SELECT Class, COUNT(*) AS TotalStudents
+FROM Student
+GROUP BY Class
+ORDER BY TotalStudents DESC;*/
+
+
+/*Task 15: Calculate the total number of male and female students in the table.
+SELECT Gender, COUNT(*) AS TotalStudents
+FROM Student
+GROUP BY Gender;*/
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
