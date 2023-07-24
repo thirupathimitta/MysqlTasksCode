@@ -6,7 +6,7 @@ ALTER TABLE Student
 ADD CONSTRAINT chk_marks CHECK (Marks BETWEEN 1 AND 600);
 
 INSERT INTO Student (Name, Class, DOB, Gender, City, Marks)
-VALUES
+VALUES--------
     ('Thiru', 'X', '2005-05-10', 'M', 'Hyderabad', 555),
     ('Teja', 'XI', '2004-08-22', 'F', 'Vizag', 588),
     ('Revanth', 'XI', '2006-02-15', 'M', 'Guntur', 578),
